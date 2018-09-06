@@ -19,6 +19,6 @@ namespace MVVM_JsonConverter.ViewModels
         /// <summary>
         /// DataBinding für Tables_Listbox.Items
         /// </summary>
-        public List<object> Tables { get; set; } = new TableNames().LoadTables();
+        public List<object> Tables { get; set; } = new DataTablesListBox().LoadTables();
     }
 }
