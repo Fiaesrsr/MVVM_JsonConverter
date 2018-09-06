@@ -80,8 +80,7 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Content="{Binding LabelContent}" Background="#604B3C" Foreground="White" FontSize="16" FontStyle="Oblique" HorizontalAlignment="Left" Height="35" Width="85"></Label>
-        <ListBox x:Name="Tables_ListBox" ItemsSource="{Binding Tables}" Width="auto" Background="#604B3C" Foreground="White" FontSize="14" HorizontalAlignment="Left" ></ListBox>
+            <ListBox x:Name="Tables_ListBox" ItemsSource="{Binding Tables}" Width="auto" Background="#604B3C" Foreground="White" FontSize="14" HorizontalAlignment="Left" ></ListBox>
         </StackPanel>
     </Grid>
 </Window>

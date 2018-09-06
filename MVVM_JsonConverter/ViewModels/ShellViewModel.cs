@@ -15,8 +15,6 @@ namespace MVVM_JsonConverter.ViewModels
         /// DataBinding für MainWindow Titel
         /// </summary>
         public string Title { get; set; } = "Json Converter";
-
-        public string LabelContent { get; set; } = new TableNames().FileName;
         
         /// <summary>
         /// DataBinding für Tables_Listbox.Items
