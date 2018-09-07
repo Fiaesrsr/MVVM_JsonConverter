@@ -10,7 +10,8 @@
         Title="{Binding Title}"  Height="450" Width="800">
     <Window.Resources>
 
-
+        <!--***** ListBox Styling *****-->
+        
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -76,11 +77,217 @@
         </Style>
 
 
+        <!--***** MainMenueNormalButton Styling *****-->
+
+        <Style x:Key="MyFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid Margin="3 2">
+                            <Rectangle Name="r1" StrokeThickness="1" Stroke="Black" StrokeDashArray="2 2"/>
+                            <Border Name="border" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}"  CornerRadius="2" BorderThickness="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        
+        <!--***** MainMenueNormalButton Specific-Styling *****-->
+        
+        <Style x:Key="ShadowStyleNormalButton">
+            <Setter Property="Control.Foreground" Value="#FFFF70AA" />
+        </Style>
+        
+        <Style x:Key="MainMenueNormalButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="11px"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}" />
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="#FFFF70AA" Offset="0.2"/>
+                        <GradientStop Color="#D60057" Offset="0.85"/>
+                        <GradientStop Color="#FFFF70AA" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+        				BorderThickness="1"
+        				Padding="4,2" 
+        				BorderBrush="Black" 
+        				CornerRadius="3" 
+        				Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" 
+        	                           VerticalAlignment="Center" Name="contentShadow" 
+        					Style="{StaticResource ShadowStyleNormalButton}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                                            <GradientStop Color="#FFFF70AA" Offset="0.35"/>
+                                            <GradientStop Color="#D60057" Offset="0.95"/>
+                                            <GradientStop Color="#FFFF70AA" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="content" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <TranslateTransform Y="1.0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF282828" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF282828" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7" />
+                                <Setter Property="Foreground" Value="Gray" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--***** MainMenueCancelButton Specific-Styling *****-->
+        
+        <Style x:Key="ShadowStyleCancelButton">
+            <Setter Property="Control.Foreground" Value="#FFAE7F5D" />
+        </Style>
+        
+        <Style x:Key="MainMenueCancelButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="11px"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisual}" />
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="#FFAE7F5D" Offset="0.2"/>
+                        <GradientStop Color="#FF604B3C" Offset="0.85"/>
+                        <GradientStop Color="#FFAE7F5D" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+        				BorderThickness="1"
+        				Padding="4,2" 
+        				BorderBrush="Black" 
+        				CornerRadius="3" 
+        				Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" 
+        	                           VerticalAlignment="Center" Name="contentShadow" 
+        					Style="{StaticResource ShadowStyleCancelButton}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                                            <GradientStop Color="#FFAE7F5D" Offset="0.35"/>
+                                            <GradientStop Color="#FF604B3C" Offset="0.95"/>
+                                            <GradientStop Color="#FFAE7F5D" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="content" Property="RenderTransform" >
+                                    <Setter.Value>
+                                        <TranslateTransform Y="1.0" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF282828" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF282828" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7" />
+                                <Setter Property="Foreground" Value="Gray" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <ListBox x:Name="Tables_ListBox" ItemsSource="{Binding Tables}" Width="auto" Background="#604B3C" Foreground="White" FontSize="14" HorizontalAlignment="Left" Margin="0,40,0,0" ></ListBox>
-        </StackPanel>
+    <Grid x:Name="MainGrid" Margin="0,40,0,10" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="250" MinWidth="200" ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition MaxWidth="200"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" x:Name="Tables_ListBox" ItemsSource="{Binding Tables}" Width="auto" Background="#D8604B3C" Foreground="White" FontSize="14" HorizontalAlignment="Left" VerticalContentAlignment="Center" ></ListBox>
+        <DataGrid Grid.Column="1" />
+
+        <Grid x:Name="ButtonGrid" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="60" ></RowDefinition>
+                <RowDefinition MinHeight="50" MaxHeight="50"></RowDefinition>
+                <RowDefinition MinHeight="50" MaxHeight="50" ></RowDefinition>
+                <RowDefinition MinHeight="50" MaxHeight="50" ></RowDefinition>
+                <RowDefinition MinHeight="50" MaxHeight="50" ></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+
+
+            </Grid.RowDefinitions>
+            <Button  Width="100" Height="40" Style="{StaticResource MainMenueNormalButton}" Content="Öffnen" Grid.Row="1"></Button>
+            <Button  Width="100" Height="40" Style="{StaticResource MainMenueNormalButton}" Content="Export" Grid.Row="2"></Button>
+            <Button  Width="100" Height="40" Style="{StaticResource MainMenueCancelButton}" Content="Beenden" Grid.Row="4"></Button>
+
+        </Grid>
     </Grid>
 </Window>
