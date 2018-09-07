@@ -8,7 +8,7 @@ using MVVM_JsonConverter.ExtensionMethods;
 
 namespace MVVM_JsonConverter.Models
 {
-    class DataTablesListBox : BindableBase
+    class Model_DataTablesListBox : BindableBase
     {
         private string fileName;
 

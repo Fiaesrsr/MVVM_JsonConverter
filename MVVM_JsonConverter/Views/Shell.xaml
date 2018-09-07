@@ -94,7 +94,7 @@
 
 
         
-        <!--***** MainMenueNormalButton Specific-Styling *****-->
+        <!--***** Base: MainMenueNormalButton Styling *****-->
         
         <Style x:Key="ShadowStyleNormalButton">
             <Setter Property="Control.Foreground" Value="#FFFF70AA" />
@@ -175,7 +175,7 @@
             </Setter>
         </Style>
 
-        <!--***** MainMenueCancelButton Specific-Styling *****-->
+        <!--***** Base: MainMenueCancelButton Specific *****-->
         
         <Style x:Key="ShadowStyleCancelButton">
             <Setter Property="Control.Foreground" Value="#FFAE7F5D" />
@@ -256,6 +256,11 @@
             </Setter>
         </Style>
 
+        <!--Specific Styling for "OpenButton"-->
+        <Style  x:Key="MaineMenueOpenButton" BasedOn="{StaticResource MainMenueNormalButton}" TargetType="Button">
+            <Setter Property="Command" Value="{Binding OpenFileCommand }"></Setter>
+        </Style>
+
     </Window.Resources>
 
     <Grid x:Name="MainGrid" Margin="0,40,0,10" >
@@ -284,9 +289,12 @@
 
 
             </Grid.RowDefinitions>
-            <Button  Width="100" Height="40" Style="{StaticResource MainMenueNormalButton}" Content="Öffnen" Grid.Row="1"></Button>
+            <Button x:Name="OpenButton"  Width="100" Height="40" Style="{StaticResource MaineMenueOpenButton}" Content="Öffnen" Grid.Row="1">
+    
+                
+            </Button>
             <Button  Width="100" Height="40" Style="{StaticResource MainMenueNormalButton}" Content="Export" Grid.Row="2"></Button>
-            <Button  Width="100" Height="40" Style="{StaticResource MainMenueCancelButton}" Content="Beenden" Grid.Row="4"></Button>
+            <Button  Width="100" Height="40"   Style="{StaticResource MainMenueCancelButton}" Content="Beenden" Grid.Row="4"></Button>
 
         </Grid>
     </Grid>

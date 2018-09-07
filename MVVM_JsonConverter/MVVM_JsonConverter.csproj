@@ -94,7 +94,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ExtensionMethods\DataBaseHelper.cs" />
-    <Compile Include="Models\DataTablesListBox.cs" />
+    <Compile Include="Models\Model_DataGrid.cs" />
+    <Compile Include="Models\Model_DataTablesListBox.cs" />
+    <Compile Include="ViewModels\Bases\ViewModelBase.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
@@ -135,7 +137,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Bases\" />
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
