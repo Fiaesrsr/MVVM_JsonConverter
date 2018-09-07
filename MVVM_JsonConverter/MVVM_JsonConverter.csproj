@@ -135,6 +135,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Bases\" />
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
