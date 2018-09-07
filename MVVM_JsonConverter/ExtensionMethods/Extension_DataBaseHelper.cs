@@ -8,14 +8,14 @@ using Microsoft.Win32;
 
 namespace MVVM_JsonConverter.ExtensionMethods
 {
-    class DataBaseHelper
+    class Extension_DataBaseHelper
     {
         // Attribute
         private string connString;
         private Nullable<bool> dialogResult;
         private OleDbConnection conn = new OleDbConnection();
         private string fileName;
-        public DataBaseHelper()
+        public Extension_DataBaseHelper()
         {
             
         }

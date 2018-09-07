@@ -13,20 +13,21 @@ namespace MVVM_JsonConverter.ViewModels
 {
     class ShellViewModel : ViewModelBase
     {
+        private List<object> _tables;
+
+        public List<object> Tables
+        {
+            get => _tables;
+            set => SetProperty(ref _tables, value);
+        }
 
 
         /// <summary>
         /// DataBinding für MainWindow Titel
         /// </summary>
         public string Title { get; set; } = "Json Converter";
-        
-        /// <summary>
-        /// DataBinding für Tables_Listbox.Items
-        /// </summary>
-        public List<object> Tables { get; set; } = new Model_DataTablesListBox().LoadTables();
-
-
         public DelegateCommand<object> OpenFileCommand { get; set; }
+        
         public DelegateCommand<object> CloseApplicationCommand { get; set; }
         protected override void RegisterCommands()
         {
@@ -34,14 +35,21 @@ namespace MVVM_JsonConverter.ViewModels
             CloseApplicationCommand = new DelegateCommand<object>(ShutItDown);
         }
 
+        /// <summary>
+        /// DataBinding für Tables_Listbox.Items
+        /// </summary>
+        
+
+
+        private void OpenFile(object obj)
+        {
+          this._tables  = new Model_DataTablesListBox().LoadTables();
+        }
+        ///  METHODEN  ///
         private void ShutItDown(object obj)
         {
             Application.Current.Shutdown();
         }
 
-        private void OpenFile(object obj)
-        {
-            new DataBaseHelper().ChangeConnectionString();
-        }
     }
 }

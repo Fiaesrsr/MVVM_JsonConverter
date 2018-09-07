@@ -93,7 +93,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ExtensionMethods\DataBaseHelper.cs" />
+    <Compile Include="ExtensionMethods\Extension_Converter.cs" />
+    <Compile Include="ExtensionMethods\Extension_DataBaseHelper.cs" />
     <Compile Include="Models\Model_DataGrid.cs" />
     <Compile Include="Models\Model_DataTablesListBox.cs" />
     <Compile Include="ViewModels\Bases\ViewModelBase.cs" />

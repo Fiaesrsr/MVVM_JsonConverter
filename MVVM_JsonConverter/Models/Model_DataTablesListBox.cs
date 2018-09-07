@@ -18,11 +18,19 @@ namespace MVVM_JsonConverter.Models
             set { fileName = value; }
         }
 
-        public List<Object> LoadTables()
+        private List<object> _tablenames;
+
+        public List<object> TableNames
+        {
+            get => _tablenames;
+            set => SetProperty(ref _tablenames, value);
+        }
+
+        public List<object> LoadTables()
         {
             List<object> tableNames = new List<object>();
 
-            DataBaseHelper Helper = new DataBaseHelper();
+            Extension_DataBaseHelper Helper = new Extension_DataBaseHelper();
             Helper.ChangeConnectionString();
 
             if (Helper.GetDialogResult() == true)
@@ -39,7 +47,8 @@ namespace MVVM_JsonConverter.Models
 
             }
 
-            return tableNames;
+           return tableNames;
+             
 
         }
     }
