@@ -76,7 +76,6 @@
             </Setter>
         </Style>
 
-
         <!--***** MainMenueNormalButton Styling *****-->
 
         <Style x:Key="MyFocusVisual">
@@ -92,8 +91,6 @@
             </Setter>
         </Style>
 
-
-        
         <!--***** Base: MainMenueNormalButton Styling *****-->
         
         <Style x:Key="ShadowStyleNormalButton">
@@ -260,6 +257,12 @@
         <Style  x:Key="MaineMenueOpenButton" BasedOn="{StaticResource MainMenueNormalButton}" TargetType="Button">
             <Setter Property="Command" Value="{Binding OpenFileCommand }"></Setter>
         </Style>
+        <!--Specific Styling for "CloseButton"-->
+        <Style  x:Key="MaineMenueCloseButton" BasedOn="{StaticResource MainMenueCancelButton}" TargetType="Button">
+            <Setter Property="Command" Value="{Binding CloseApplicationCommand }"></Setter>
+        </Style>
+
+
 
     </Window.Resources>
 
@@ -289,13 +292,9 @@
 
 
             </Grid.RowDefinitions>
-            <Button x:Name="OpenButton"  Width="100" Height="40" Style="{StaticResource MaineMenueOpenButton}" Content="Öffnen" Grid.Row="1">
-    
-                
-            </Button>
+            <Button x:Name="OpenButton"  Width="100" Height="40" Style="{StaticResource MaineMenueOpenButton}" Content="Öffnen" Grid.Row="1"></Button>
             <Button  Width="100" Height="40" Style="{StaticResource MainMenueNormalButton}" Content="Export" Grid.Row="2"></Button>
-            <Button  Width="100" Height="40"   Style="{StaticResource MainMenueCancelButton}" Content="Beenden" Grid.Row="4"></Button>
-
+            <Button  Width="100" Height="40"   Style="{StaticResource MaineMenueCloseButton}" Content="Beenden" Grid.Row="4"></Button>
         </Grid>
     </Grid>
 </Window>

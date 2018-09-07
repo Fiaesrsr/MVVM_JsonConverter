@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Prism.Commands;
 using MVVM_JsonConverter.ViewModels.Bases;
 using System;
+using System.Windows;
 
 namespace MVVM_JsonConverter.ViewModels
 {
@@ -26,9 +27,16 @@ namespace MVVM_JsonConverter.ViewModels
 
 
         public DelegateCommand<object> OpenFileCommand { get; set; }
+        public DelegateCommand<object> CloseApplicationCommand { get; set; }
         protected override void RegisterCommands()
         {
             OpenFileCommand = new DelegateCommand<object>(OpenFile);
+            CloseApplicationCommand = new DelegateCommand<object>(ShutItDown);
+        }
+
+        private void ShutItDown(object obj)
+        {
+            Application.Current.Shutdown();
         }
 
         private void OpenFile(object obj)
